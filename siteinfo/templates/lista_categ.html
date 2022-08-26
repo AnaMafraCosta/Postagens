@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>INFO</title>
+  </head>
+
+  <body>
+    <table border="1">
+      <tr>
+        <td>Categoria</td>
+      </tr>
+
+      {% for categoria in categoria_chave %}
+      <tr>
+        <td>{{ categoria.categoria}}</td>
+        <td>
+          <a href="{% url 'url_atualizar_categoria' categoria.id %}">
+            editar
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'url_criar_categoria' %}"> Criar nova categoria</a>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>INFO</title>
+  </head>
+
+  <body>
+    <table border="1">
+      <tr>
+        <td>Título</td>
+        <td>Subtítulo</td>
+        <td>Data</td>
+      </tr>
+
+      {% for postagem in postagem_chave %}
+      <tr>
+        <td>{{ postagem.titulo}}</td>
+        <td>{{ postagem.subtitulo}}</td>
+        <td>{{ postagem.data_publicacao}}</td>
+        <td>
+          <a href="{% url 'url_atualizar_postagem' postagem.id %}"> editar </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'url_criar_postagem' %}"> Criar nova postagem</a>
+  </body>
+</html>
