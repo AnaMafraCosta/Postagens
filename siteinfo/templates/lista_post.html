@@ -20,6 +20,9 @@
         <td>
           <a href="{% url 'url_atualizar_postagem' postagem.id %}"> editar </a>
         </td>
+        <td>
+          <a href="{% url 'url_deletar_postagem' postagem.id %}"> deletar </a>
+        </td>
       </tr>
       {% endfor %}
     </table>
