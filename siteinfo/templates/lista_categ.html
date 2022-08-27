@@ -18,6 +18,9 @@
             editar
           </a>
         </td>
+        <td>
+          <a href="{% url 'url_deletar_categoria' categoria.id %}"> deletar </a>
+        </td>
       </tr>
       {% endfor %}
     </table>

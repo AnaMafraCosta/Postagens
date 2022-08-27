@@ -35,6 +35,12 @@ def atualizar_categ(request, id_categoria):
     return render(request, "create_categ.html", pacote)
 
 
+def deletar_categ(request, id_categoria):
+    categoria = Categoria.objects.get(pk=id_categoria)
+    categoria.delete()
+    return redirect("listacateg")
+
+
 def lista_post(request):
     postagens = Postagem.objects.all()
     pacote = {"postagem_chave": postagens}
@@ -61,3 +67,10 @@ def atualizar_post(request, id_postagem):
 
     pacote = {"form_postagem": form}
     return render(request, "create_post.html", pacote)
+
+
+def deletar_post(request, id_postagem):
+    postagem = Postagem.objects.get(pk=id_postagem)
+    postagem.delete()
+
+    return redirect("listapost")

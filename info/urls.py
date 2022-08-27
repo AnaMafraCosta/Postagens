@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from siteinfo.views import create_categ, lista_categ, atualizar_categ, lista_post, create_post, atualizar_post
+from siteinfo.views import create_categ, lista_categ, atualizar_categ, lista_post, create_post, atualizar_post, deletar_categ, deletar_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,9 +24,13 @@ urlpatterns = [
     path('create_categ/', create_categ, name="url_criar_categoria"),
     path('atualizarcategoria/<int:id_categoria>',
          atualizar_categ, name="url_atualizar_categoria"),
+    path('deletarcategoria/<int:id_categoria>',
+         deletar_categ, name="url_deletar_categoria"),
 
     path('lista_post/', lista_post, name="listapost"),
     path('create_post/', create_post, name="url_criar_postagem"),
     path('atualizarpostagem/<int:id_postagem>',
          atualizar_post, name="url_atualizar_postagem"),
+    path('deletarpostagem/<int:id_postagem>',
+         deletar_post, name="url_deletar_postagem"),
 ]
