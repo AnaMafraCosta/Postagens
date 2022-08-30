@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from info import settings
+from django.conf.urls.static import static
 from siteinfo.views import create_categ, lista_categ, atualizar_categ, lista_post, create_post, atualizar_post, deletar_categ, deletar_post
 
 urlpatterns = [

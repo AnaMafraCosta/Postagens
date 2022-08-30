@@ -2,25 +2,28 @@
 
 {% block title%} Categoria {% endblock%}
 {% block content %}
-    <table border="1">
-      <tr>
-        <td>Categoria</td>
-      </tr>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Categorias</h1>
+  <a href="{% url 'url_criar_categoria' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Adicionar categoria</a>
+</div>
+<div class="table-responsive">
+  <table border="1"  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <tr>
+      <td>Categoria</td>
+      <td>Ações</td>
+    </tr>
 
-      {% for categoria in categoria_chave %}
-      <tr>
-        <td>{{ categoria.categoria}}</td>
-        <td>
-          <a href="{% url 'url_atualizar_categoria' categoria.id %}">
-            editar
-          </a>
-        </td>
-        <td>
-          <a href="{% url 'url_deletar_categoria' categoria.id %}"> deletar </a>
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
-    <a href="{% url 'url_criar_categoria' %}"> Criar nova categoria</a>
-    <i class="bi bi-house-fill"></i>
+    {% for categoria in categoria_chave %}
+    <tr>
+      <td>{{ categoria.categoria}}</td>
+      <td>
+        <a href="{% url 'url_atualizar_categoria' categoria.id %}" title="Editar">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="{% url 'url_deletar_categoria' categoria.id %}" title="Excluir"> <i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 {% endblock %}
